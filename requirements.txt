@@ -11,3 +11,4 @@ streamlit
 wordcloud
 arabic_reshaper
 python-bidi
+torch
