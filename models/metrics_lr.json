@@ -1,0 +1,1 @@
+{"model": "TF-IDF + LR", "accuracy": 0.9508178283852259, "precision_weighted": 0.9572626765765767, "recall_weighted": 0.9508178283852259, "f1_weighted": 0.9525756615213542, "f1_negative": 0.8607740891803053, "f1_positive": 0.9701337153067477}
