@@ -28,9 +28,9 @@
 
 ## Overview
 
-This project builds a full Arabic NLP pipeline to classify hotel reviews as **positive** or **negative** using the **HARD** (Hotel Arabic Reviews Dataset) — ~400K Arabic reviews scraped from Booking.com.
+This project builds a full Arabic NLP pipeline to classify hotel reviews as **positive** or **negative** using the **HARD** (Hotel Arabic Reviews Dataset) 400K Arabic reviews scraped from Booking.com.
 
-The key design decision is **Experiment C**: rather than training and testing on the same distribution (the standard tutorial approach), we train on a class-balanced split and evaluate on the full unbalanced dataset. This simulates real-world deployment where positive reviews naturally outnumber negative ones, and directly tests whether the model generalizes beyond ideal conditions.
+The key design decision is rather than training and testing on the same distribution (the standard tutorial approach), we train on a class-balanced split and evaluate on the full unbalanced dataset. This simulates real-world deployment where positive reviews naturally outnumber negative ones, and directly tests whether the model generalizes beyond ideal conditions.
 
 ---
 
@@ -53,7 +53,7 @@ The key design decision is **Experiment C**: rather than training and testing on
 |---|---|---|
 | Balanced (80%) | 84,504 | Training |
 | Balanced (20%) | 21,126 | Validation |
-| Unbalanced (100%) | 328,981 | Final Test — Experiment C |
+| Unbalanced (100%) | 328,981 | Final Test |
 
 ---
 
@@ -68,14 +68,14 @@ Balanced Dataset (105,630 reviews)
                                                  │
                                                  ▼
 Unbalanced Dataset (328,981 reviews) ──► Final Evaluation
-        │                                  (Experiment C)
+        │                                  
         └── Never seen during training
 ```
 
 **Research question:**
 > Does a model trained on class-balanced data generalize to a real-world skewed distribution?
 
-This design is more rigorous than standard train/test splits because it explicitly measures the performance degradation introduced by real-world class imbalance — a critical consideration for any production NLP system.
+This design is more rigorous than standard train/test splits because it explicitly measures the performance degradation introduced by real-world class imbalance a critical consideration for any production NLP system.
 
 ---
 
@@ -103,7 +103,7 @@ Raw HARD Data (.txt, UTF-16)
          │                          │
          └──────────┬───────────────┘
                     ▼
-  5. Evaluation — Experiment C
+  5. Evaluation
      (test on unbalanced set, compare models)
                     │
                     ▼
@@ -164,7 +164,7 @@ Two separate preprocessing pipelines — one per model type.
 | Scheduler | Linear warmup (10%) |
 | Mixed precision | fp16 (autocast + GradScaler) |
 | Hardware | Tesla T4 (Google Colab) |
-| Training time | ~40 minutes |
+| Training time | 40 minutes |
 
 ---
 
