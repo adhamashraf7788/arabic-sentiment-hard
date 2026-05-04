@@ -8,3 +8,6 @@ transformers
 datasets
 farasapy
 streamlit
+wordcloud
+arabic_reshaper
+python-bidi
